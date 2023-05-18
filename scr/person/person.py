@@ -1,21 +1,37 @@
 from abc import ABC, abstractmethod
 
 class Person(ABC): # Abstract class
-    def __init__(self, id_string: str, name:str , planet: "Planet") -> None:
-        self._id_string = id_string
+    id = 0
+    def __init__(self, name:str , planet: "Planet") -> None:
+        idHex = hex(Person.id)
+        if Person.id <= 15:
+            id_string = "00000" + idHex[2:]
+            self._id_string = id_string
+        else:
+            id_string = "0000" + idHex[2:]
+            self._id_string = id_string
+        Person.id += 1
         self._name = name
         self._planet = planet
 
 
 class Astarte (Person):
-    def __init__(self, id_string: str, name:str , planet: "Planet", founding: int) -> None:
-        super().__init__(id_string, name, planet)
+    def __init__(self, name:str , planet: "Planet", founding: int) -> None:
+        super().__init__(name, planet)
         self.__founding = founding
 
 class Bureaucrat(Person):
-    def __init__(self, id_string: str, name:str , planet: "Planet", department: str) -> None:
-        super().__init__(id_string, name, planet)
+    def __init__(self, name:str, department: str, planet: "Planet") -> None:
+        super().__init__(name, planet)
         self._department = department
+
+    @property
+    def name(self) -> str:
+        return self._name
+    
+    @property
+    def id_string (self) -> str:
+        return self._id_string
 
 class Soldier(Person):
     def __init__(self, id_string: str, name:str , planet: "Planet", age: int) -> None:
@@ -23,24 +39,21 @@ class Soldier(Person):
         self._age = age
 
 class Primarch(Person):
-    id = 0
-    def __init__(self, name: str ,alias: str, planet: "Planet", loyalty: bool= False, status: "Status" = None, imperium:"Imperium"= None) -> None:
+    def __init__(self, name: str ,alias: str, planet: "Planet", loyalty: bool= False, 
+                 status: "Status" = None, imperium:"Imperium"= None) -> None:
         
-        
-        idHex = hex(Primarch.id)
-        if Primarch.id <= 15:
-            id_string = "00000" + idHex[2:]
-            self.__id = id_string
-        else:
-            id_string = "0000" + idHex[2:]
-            self.__id = id_string
-        super().__init__(id_string, name, planet)
-        Primarch.id += 1
+        super().__init__(name, planet)
         self.__alias = alias
         self.__loyalty = loyalty
         self.__status = status
         self.__imperium = imperium
         ##add this primarch to the imperium
+
+    def betray(self):
+        print(f"Primach {self._name} betrays the Emperor")
+
+    def change_status(self, status:"Status"):
+        self.__status = status
 
     @property
     def name(self) -> str:

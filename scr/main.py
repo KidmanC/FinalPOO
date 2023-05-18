@@ -2,6 +2,8 @@ from general.emperor import Emperor, SingletonError
 from utils.enumeration import PlanetType
 from general.segmentum import Segmentum
 from general.imperium import Imperium
+from utils.enumeration import Status
+from person.person import Bureaucrat
 
 def main() -> None:
     try:
@@ -293,6 +295,8 @@ SingletonError: There can only be one Emperor of Mankind
 Added Planet Terra to Segmentum Solar
 The Emperor created The Imperium of Mankind at planet Terra
 Added Segmentum Solar to the Imperium
+
+
 Added Segmentum Obscurus to the Imperium
 Added Planet Caliban to Segmentum Obscurus
 The Emperor created Primarch Lion El Jonson
@@ -302,8 +306,6 @@ Added Planet Chemos to Segmentum Ultima
 The Emperor created Primarch Fulgrim
 Added Planet Olympia to Segmentum Ultima
 The Emperor created Primarch Perturabo
-
-
 Added Planet Chogoris to Segmentum Ultima
 The Emperor created Primarch Jaghatai Khan
 Added Planet Fenris to Segmentum Obscurus

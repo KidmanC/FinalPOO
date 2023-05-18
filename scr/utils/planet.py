@@ -3,7 +3,6 @@ from utils.chapter import Chapter
 from utils.regiment import Regiment
 
 class Planet:
-    
     def __init__(self, name: str, type_: "PlanetType", chapter: "Chapter" = None, regiments: List["Regiment"] = None) -> None:
         self.__name = name
         self.__type_ = type_

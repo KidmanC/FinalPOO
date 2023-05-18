@@ -36,26 +36,26 @@ class Emperor:
         imperium.add_segmentum(segmentum)
         ##add this emperor to the imperium
         #The Emperor created The Imperium of Mankind at planet Terra
-        """'planet_name': 'Terra',
-        'planet_type': PlanetType.HIVE,
-        'segmentum_name': 'Solar',
-        'segmentum_location': 'Center'"""
+        
 
-    def create_primarch(self, name: str, alisas: str= None, info: dict = None) -> None:
+    def create_primarch(self, name: str, alias: str = None, info: dict = None) -> None:
         
         if( info is None):
             print(f"The emperor created Primarch *****")
+            self.__imperium.add_primarch(None)
         else:
 
             planet= Planet(info['planet_name'], info['planet_type'])
             segmentum = Segmentum(info['segmentum_name'], info['segmentum_location']) 
 
-            if(not (self.imperium.segmentum(segmentum))):
-                self.imperium.add_segmentum(segmentum)
+            if(self.__imperium.segmentum(segmentum) == False):
+                self.__imperium.add_segmentum(segmentum)
             segmentum.add_planet(planet)
-            primach= Primarch(name, alisas, planet)
-            self.imperium.add_primarch(primach)
-            print(f"The emperor created Primarch {primach.name}")
+
+            
+            primarch = Primarch(name= name, alias= alias, planet= planet)
+            self.__imperium.add_primarch(primarch)
+            
 
     
     
