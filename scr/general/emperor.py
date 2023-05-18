@@ -29,8 +29,8 @@ class Emperor:
         planet = Planet(info['planet_name'], info['planet_type'])
         segmentum = Segmentum(info['segmentum_name'], info['segmentum_location'])
         imperium = Imperium(self, name, planet, None )
-        
         segmentum.add_planet(planet)
+        
         print(f"The emperor created The Imperium of Mankind at planet {planet.name}")
         self.__imperium = imperium
         imperium.add_segmentum(segmentum)
@@ -42,13 +42,14 @@ class Emperor:
         'segmentum_location': 'Center'"""
 
     def create_primarch(self, name: str, alisas: str= None, info: dict = None) -> None:
+        
         if( info is None):
             print(f"The emperor created Primarch *****")
         else:
 
             planet= Planet(info['planet_name'], info['planet_type'])
             segmentum = Segmentum(info['segmentum_name'], info['segmentum_location']) 
-            
+
             if(not (self.imperium.segmentum(segmentum))):
                 self.imperium.add_segmentum(segmentum)
             segmentum.add_planet(planet)
