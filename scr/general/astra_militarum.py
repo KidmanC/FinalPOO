@@ -3,4 +3,4 @@ from utils.regiment import Regiment
 
 class AstraMilitarum:
     def __init__(self, regiments: List["Regiment"]) -> None:
-        pass
+        self.__regiments = [] if regiments is None else regiments

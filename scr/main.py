@@ -1,3 +1,8 @@
+from general.emperor import Emperor, SingletonError
+from utils.enumeration import PlanetType
+from general.segmentum import Segmentum
+from general.imperium import Imperium
+
 def main() -> None:
     try:
         emperor = Emperor()
@@ -297,6 +302,8 @@ Added Planet Chemos to Segmentum Ultima
 The Emperor created Primarch Fulgrim
 Added Planet Olympia to Segmentum Ultima
 The Emperor created Primarch Perturabo
+
+
 Added Planet Chogoris to Segmentum Ultima
 The Emperor created Primarch Jaghatai Khan
 Added Planet Fenris to Segmentum Obscurus
