@@ -7,21 +7,21 @@ from general.adeptus_astartes import AdeptusAstartes
 from general.segmentum import Segmentum
 from utils.planet import Planet
 
-planetas = []
-i=0
-class Imperium:
 
+class Imperium:
+    #planetas = []
+    #i = 0
     __INSTANCE = None
     
 
     def __init__(self, emperor: "Emperor", name: str, planet: "Planet",segmentums: List["Segmentum"], 
                  primarchs: List["Primarch"] = None, adeptus_astartes: "AdeptusAstartes"=None, 
-                 administratum: "Administratum"= None, astra_militarum: "AstraMilitarum"=None ) -> None:
+                 astra_militarum: "AstraMilitarum"=None ) -> None:
         self.__emperor = emperor
         self.__name = name
         self.__primarchs =  [] if primarchs is None else primarchs
         self.__adeptus_astartes = adeptus_astartes
-        self.__administratum = administratum
+        self.__administratum = Administratum()
         self.__astra_militarum = astra_militarum
         self.__segmentums = [] if segmentums is None else segmentums
         self.__planet = planet
@@ -50,35 +50,33 @@ class Imperium:
         return self.__primarchs
     
     def add_bureaucrat(self, bureaucrat: "Bureaucrat") -> None:
-        planet_registry=[]
-        planet_registry.append(i)
-        administratum = Administratum (planet_registry, bureaucrat)
-        self.__administratum = administratum
+        self.__administratum.bureaucrats.append(bureaucrat)
+        self.__administratum.planet_registry.append(0)
+
         print(f"{bureaucrat.name} {bureaucrat.id_string} started to work at Imperium")
-        i+=1
     
     def get_bureaucrat(self, index: int) -> "Bureaucrat":
         return self.__administratum.bureaucrats[index]
 
     def register_planet(self, bureaucrat: "Bureaucrat", info: dict):
-        if planetas == []:
-            self.__administratum.planet_registry.append(i)
-            planetas.append(Planet(info['planet_name'], info['planet_type']))
+        planet = Planet(info["planet_name"], info['planet_type'])
+        segmentu = info["segmentum_name"]
+        for segmentum in self.__segmentums:
+            if segmentum.name == segmentu:
+                for planeta in segmentum.planets:
+                    if planeta.name == info["planet_name"]:
+                        print("RuntimeError: Planet already registered")
+                        return
+                segmentum.add_planet(planet)
+                return
+
         
-        else:
-            for planeta in planetas:
-                if (planeta.name == info['planet_name']):
-                    print(f"RuntimeError: Planet already registered")
-                    return
-            self.__administratum.planet_registry.append(i)
-            planetas.append(Planet(info['planet_name'], info['planet_type']))
             
+    @property
+    def segmentums(self) -> str:
+        return self.__segmentums
 
-        
 
-
-
- 
     def segmentum(self, segmentum: "Segmentum") -> bool:
         bool = False
         for seg in self.__segmentums:

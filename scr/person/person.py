@@ -4,12 +4,10 @@ class Person(ABC): # Abstract class
     id = 0
     def __init__(self, name:str , planet: "Planet") -> None:
         idHex = hex(Person.id)
-        if Person.id <= 15:
-            id_string = "00000" + idHex[2:]
-            self._id_string = id_string
-        else:
-            id_string = "0000" + idHex[2:]
-            self._id_string = id_string
+        id_string = idHex[2:]
+        id_string = id_string.zfill(6)
+        self._id_string = id_string
+        
         Person.id += 1
         self._name = name
         self._planet = planet

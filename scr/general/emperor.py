@@ -50,8 +50,10 @@ class Emperor:
 
             if(self.__imperium.segmentum(segmentum) == False):
                 self.__imperium.add_segmentum(segmentum)
+            
+                #if segmentum.search_planet(planet.name) == True:
+                    #print(f"RuntimeError: Planet already registered")
             segmentum.add_planet(planet)
-
             
             primarch = Primarch(name= name, alias= alias, planet= planet)
             self.__imperium.add_primarch(primarch)
