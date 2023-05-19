@@ -23,3 +23,6 @@ class Regiment:
     @property
     def soldiers(self):
         return self.__soldiers
+    
+    def soldiers_quantity(self):
+        return len(self.__soldiers)

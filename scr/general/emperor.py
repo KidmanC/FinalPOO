@@ -38,7 +38,7 @@ class Emperor:
         
 
     def create_primarch(self, name: str, alias: str = None, info: dict = None) -> None:
-        
+
         if( info is None):
             print(f"The emperor created Primarch *****")
             self.__imperium.add_primarch(None)
@@ -47,20 +47,28 @@ class Emperor:
                 segmentum = Segmentum(info['segmentum_name'], info['segmentum_location'])
                 self.__imperium.add_segmentum(segmentum)
 
-                if segmentum.search_planet(info['planet_name']) == False:
+                if self.__imperium.search_planet(info['planet_name']) == True:
+                    planet= Planet(info['planet_name'], info['planet_type'])
+                    primarch = Primarch(name= name, alias= alias, planet= planet)
+                    self.__imperium.add_primarch(primarch)
+                    return
+                else:
                     planet= Planet(info['planet_name'], info['planet_type']) 
-
-            
-                segmentum.add_planet(planet)
+                    segmentum.add_planet(planet)
+                    primarch = Primarch(name= name, alias= alias, planet= planet)
+                    self.__imperium.add_primarch(primarch)
             else:
                 segmentum = self.__imperium.get_segmentum(info['segmentum_name'])
-                if segmentum.search_planet(info['planet_name']) == False:
+                if self.__imperium.search_planet(info['planet_name']) == True:
+                    planet= Planet(info['planet_name'], info['planet_type'])
+                    primarch = Primarch(name= name, alias= alias, planet= planet)
+                    self.__imperium.add_primarch(primarch)
+                    return
+                else:
                     planet= Planet(info['planet_name'], info['planet_type'])
                     segmentum.add_planet(planet)
-
-            
-            primarch = Primarch(name= name, alias= alias, planet= planet)
-            self.__imperium.add_primarch(primarch)
+                    primarch = Primarch(name= name, alias= alias, planet= planet)
+                    self.__imperium.add_primarch(primarch)
             
 
     

@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from utils.enumeration import Status
 
 class Person(ABC): # Abstract class
     id = 0
@@ -21,11 +22,16 @@ class Astarte (Person):
 class Bureaucrat(Person):
     def __init__(self, name:str, department: str, planet: "Planet") -> None:
         super().__init__(name, planet)
-        self._department = department
+        self.__department = department
+        self.__dicc = {}
 
     @property
     def name(self) -> str:
-        return self._name
+        return self._name+" "+self._id_string
+    
+    @property
+    def dicc(self) -> str:
+        return self.__dicc
     
     @property
     def id_string (self) -> str:
@@ -37,8 +43,8 @@ class Soldier(Person):
         self._age = age
 
 class Primarch(Person):
-    def __init__(self, name: str ,alias: str, planet: "Planet", loyalty: bool= False, 
-                 status: "Status" = None, imperium:"Imperium"= None) -> None:
+    def __init__(self, name: str ,alias: str, planet: "Planet", loyalty: bool= True, 
+                 status: "Status" = Status.ALIVE.value , imperium:"Imperium"= None) -> None:
         
         super().__init__(name, planet)
         self.__alias = alias
@@ -51,14 +57,38 @@ class Primarch(Person):
 
     def betray(self):
         print(f"Primach {self._name} betrays the Emperor")
+        self.__loyalty = False
 
     def change_status(self, status:"Status"):
-        self.__status = status
+        self.__status = status.value
 
     @property
     def name(self) -> str:
         return self._name
+    
+    @property
+    def alias(self) -> str:
+        return self.__alias
 
+    @property
+    def loyal(self) -> str:
+        return self.__loyalty
+    
+    @property
+    def status(self) -> str:
+        return self.__status
+    
+    @property
+    def planet(self) -> str:
+        return self._planet
+    
+    @property
+    def id_string(self) -> str:
+        return self._id_string
+    
+    @property
+    def imperium(self) -> "Imperium":
+        return self.__imperium
 
         
 

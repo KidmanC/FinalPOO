@@ -17,3 +17,4 @@ class PlanetType(Enum):
     FRONTIER = "Frontier"
     HIVE = "Hive"
 
+

@@ -10,11 +10,16 @@ class Chapter:
         self.__planet = planet
         self.__astartes = [] if astartes is None else astartes
         self.__successor_chapters = [] if successor_chapters is None else successor_chapters
-        ##add this chapter to the chapter
+        ##add this chapter to the chapter(done)
+        self.__planet.add_chapter(self)
 
     @property
     def name(self):
         return self.__name
+    
+    @property
+    def successor_chapters(self):
+        return self.__successor_chapters
     
     def add_successor_chapter (self, chapter: "Chapter"):
         self.__successor_chapters.append(chapter)
