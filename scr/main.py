@@ -3,7 +3,7 @@ from utils.enumeration import PlanetType
 from general.segmentum import Segmentum
 from general.imperium import Imperium
 from utils.enumeration import Status
-from person.person import Bureaucrat
+from person.person import Bureaucrat, Astarte, Soldier
 
 def main() -> None:
     try:
@@ -296,27 +296,45 @@ Added Planet Terra to Segmentum Solar
 The Emperor created The Imperium of Mankind at planet Terra
 Added Segmentum Solar to the Imperium
 
+done
+
 
 Added Segmentum Obscurus to the Imperium
 Added Planet Caliban to Segmentum Obscurus
 The Emperor created Primarch Lion El Jonson
 The Emperor created Primarch *****
 Added Segmentum Ultima to the Imperium
+
+done
+
+
 Added Planet Chemos to Segmentum Ultima
 The Emperor created Primarch Fulgrim
 Added Planet Olympia to Segmentum Ultima
 The Emperor created Primarch Perturabo
 Added Planet Chogoris to Segmentum Ultima
+
+done
+
+
 The Emperor created Primarch Jaghatai Khan
 Added Planet Fenris to Segmentum Obscurus
 The Emperor created Primarch Leman Russ
 The Emperor created Primarch Rogal Dorn
 Added Planet Nostramo to Segmentum Ultima
+
+done (quitar planet Terra)
+
+
 The Emperor created Primarch Konrad Curze
 Added Planet Baal to Segmentum Ultima
 The Emperor created Primarch Sanguinius
 Added Planet Medusa to Segmentum Obscurus
 The Emperor created Primarch Ferrus Manus
+
+done
+
+
 The Emperor created Primarch *****
 Added Planet Nuceria to Segmentum Ultima
 The Emperor created Primarch Angron
@@ -327,6 +345,10 @@ Added Planet Barbarus to Segmentum Tempestus
 The Emperor created Primarch Mortarion
 Added Planet Prospero to Segmentum Ultima
 The Emperor created Primarch Magnus the Red
+
+done
+
+
 Added Planet Cthonia to Segmentum Solar
 The Emperor created Primarch Horus Lupercal
 Added Segmentum Pacificus to the Imperium
@@ -339,6 +361,10 @@ The Emperor created Primarch Corvus Corax
 Added Planet Cadia to Segmentum Obscurus
 The Emperor created Primarch Alpharius Omegon
 Added Planet Mars to Segmentum Solar
+
+done
+
+
 RuntimeError: There can only be 20 Primarchs
 Primarch Fulgrim betrays the Emperor
 Primarch Perturabo betrays the Emperor
@@ -350,9 +376,18 @@ Primarch Horus Lupercal betrays the Emperor
 Primarch Lorgar Aurelian betrays the Emperor
 Primarch Alpharius Omegon betrays the Emperor
 Imperial Bureaucrat 000013 started to work at Imperium
+
+
+done
+
+
 Added Planet Armageddon to Segmentum Solar
 RuntimeError: Planet already registered
 Added Planet Catachan to Segmentum Ultima
+
+done
+
+
 Created Chapter Dark Angels of Adeptus Astartes
 Created Chapter Emperor Children of Adeptus Astartes
 Created Chapter Iron Warriors of Adeptus Astartes
@@ -372,13 +407,27 @@ Created Chapter Salamanders of Adeptus Astartes
 Created Chapter Raven Guard of Adeptus Astartes
 Created Chapter Alpha Legion of Adeptus Astartes
 Created Chapter Black Consuls of Adeptus Astartes
+
+done
+
+
 Added Successor Chapter Black Consuls to Chapter Ultramarines
+
+done
+
+
 Chapter Ultramarines is full
+
 RuntimeError: There can only be 1000 Astartes per Chapter
 Imperial Bureaucrat 0003fd started to work at Imperium
 Added Planet Krieg to Segmentum Tempestus
 Added Planet Aexe Cardinal to Segmentum Pacificus
 Added Planet Spectoris to Segmentum Obscurus
+
+done
+
+
+
 Created Regiment Death Korps of Krieg 1st Siege Army of Astra Militarum
 Registered 300 Soldiers in Death Korps of Krieg 1st Siege Army
 Created Regiment Honor Guard of Macragge 1st Infantry Army of Astra Militarum
@@ -388,6 +437,10 @@ Registered 130 Soldiers in Honor Guard of Macragge 2nd Infantry Army
 Imperial Bureaucrat 00067e started to work at Imperium
 Added Planet Kaggeran to Segmentum Ultima
 Added Planet Vaxanide to Segmentum Obscurus
+
+done
+
+
 The Imperial Bureaucrat 0003fd has the maximum registry with 3 Planets
 
 ---------- Planet Type ----------

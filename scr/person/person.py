@@ -14,7 +14,7 @@ class Person(ABC): # Abstract class
 
 
 class Astarte (Person):
-    def __init__(self, name:str , planet: "Planet", founding: int) -> None:
+    def __init__(self, name:str , founding: int, planet: "Planet") -> None:
         super().__init__(name, planet)
         self.__founding = founding
 
@@ -32,8 +32,8 @@ class Bureaucrat(Person):
         return self._id_string
 
 class Soldier(Person):
-    def __init__(self, id_string: str, name:str , planet: "Planet", age: int) -> None:
-        super().__init__(id_string, name, planet)
+    def __init__(self, name:str, age: int, planet: "Planet") -> None:
+        super().__init__(name, planet)
         self._age = age
 
 class Primarch(Person):
@@ -45,7 +45,9 @@ class Primarch(Person):
         self.__loyalty = loyalty
         self.__status = status
         self.__imperium = imperium
-        ##add this primarch to the imperium
+        if self.__imperium is not None:
+            self.__imperium.add_primarch(self)
+        ##add this primarch to the imperium(done)
 
     def betray(self):
         print(f"Primach {self._name} betrays the Emperor")
