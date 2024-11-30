@@ -1,3 +1,2 @@
-# POO
-Programacion Orientada a Objetos
-Nombre: Kidman Daniel Cabana Pérez
+#Programacion Orientada a Objetos
+Kidman Cabana
