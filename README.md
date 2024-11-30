@@ -1,5 +1,3 @@
-# ExamenFinalPOO
-Segundo Parcial
+# POO
+Programacion Orientada a Objetos
 Nombre: Kidman Daniel Cabana Pérez
-Codigo: 200182115
-NRC: 2894
